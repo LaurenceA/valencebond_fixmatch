@@ -130,10 +130,10 @@ def train_one_epoch(epoch,
             lr_log = [pg['lr'] for pg in optim.param_groups]
             lr_log = sum(lr_log) / len(lr_log)
 
-            logger.info("epoch:{}, iter: {}. loss: {:.4f}. loss_u: {:.4f}. loss_x: {:.4f}. loss_u_real: {:.4f}. "
-                        "n_correct_u: {:.2f}/{:.2f}. Mask:{:.4f} . LR: {:.4f}. Time: {:.2f}".format(
-                epoch, it + 1, loss_meter.avg, loss_u_meter.avg, loss_x_meter.avg, loss_u_real_meter.avg,
-                n_correct_u_lbs_meter.avg, n_strong_aug_meter.avg, mask_meter.avg, lr_log, t))
+            #logger.info("epoch:{}, iter: {}. loss: {:.4f}. loss_u: {:.4f}. loss_x: {:.4f}. loss_u_real: {:.4f}. "
+            #            "n_correct_u: {:.2f}/{:.2f}. Mask:{:.4f} . LR: {:.4f}. Time: {:.2f}".format(
+            #    epoch, it + 1, loss_meter.avg, loss_u_meter.avg, loss_x_meter.avg, loss_u_real_meter.avg,
+            #    n_correct_u_lbs_meter.avg, n_strong_aug_meter.avg, mask_meter.avg, lr_log, t))
 
             epoch_start = time.time()
 
@@ -181,7 +181,7 @@ def main():
     #                     help='number of classes in dataset')
     parser.add_argument('--n-labeled', type=int, default=40,
                         help='number of labeled samples for training')
-    parser.add_argument('--n-epoches', type=int, default=1024,
+    parser.add_argument('--n-epoches', type=int, default=200,
                         help='number of training epoches')
     parser.add_argument('--batchsize', type=int, default=64,
                         help='train batch size of labeled samples')
